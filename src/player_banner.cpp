@@ -66,6 +66,14 @@ player_banner::player_banner(std::string config_path){
 
     config.close();
 
+    if(creator_tag == ""){
+        creator_tag = "Anonymous";
+    };
+    
+    if(player_name == ""){
+        player_name = "ANONYMOUS";
+    }
+
     if (!std::filesystem::exists(pic_path) || pic_path == "") {
         std::cout << pic_path << " - does not exist." << std::endl;
         pic_path = "src/assets/no_user.png";
