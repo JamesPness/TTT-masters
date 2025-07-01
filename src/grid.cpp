@@ -119,12 +119,11 @@ void grid::draw_winner(piece winner){
         DrawLineEx(diag2.start, diag2.end, thickness, X_color);
 
     } else if (winner == DOT){
-        float thickness = global_pole_width;
+        float thickness = global_pole_width*2;
 
         Color O_color  = BLUE;
 
-        DrawCircleV(global_position_center, width, O_color);
-        DrawCircleV(global_position_center, width-thickness, BG_COLOR);
+        DrawRing(global_position_center, width-thickness, width, 0, 360, 64, O_color);
     };
 };
 

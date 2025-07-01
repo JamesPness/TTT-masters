@@ -50,19 +50,14 @@ move hand_place(raw_boardstate b){
         std::cout << GetMousePosition().x << ", " << GetMousePosition().y << std::endl;
         Vector2 mouse_pos = GetMousePosition();
         int sub = get_closest(mouse_pos, main_grid.get_global_grid_spots());
-        if(sub < 0 || sub > 8){
-            return {-1,-1};
 
-        };
         int spot = get_closest(mouse_pos, sub_grids[sub].get_global_grid_spots());
 
-        if(spot < 0 || spot > 8){
+        if(!board.is_valid_move((move){sub, spot})){
+            //std::cerr << '{' << sub << ", " << spot << '}' << " is not at valid move" << std::endl;
             return {-1,-1};
         };
-        
-        if(board.get_sub_boards()[sub].get_spots()[spot] != EMPTY){
-            return {-1,-1};
-        };
+
 
         if (dist(mouse_pos, sub_grids[sub].get_global_grid_spots()[spot]) <= hand_place_aq){
             move _move = {sub, spot};
@@ -264,6 +259,7 @@ int main() {
                 board.place_piece(_move.sub, _move.spot, board.get_turn());
             } else if(_move.sub != -1 && _move.spot != -1){
                 std::cerr << '{' << _move.sub << ", " << _move.spot << '}' << " is not at valid move" << std::endl;
+                board.set_winner(static_cast<piece>(-board.get_turn()));
             };
             //////////////////////////////
         };

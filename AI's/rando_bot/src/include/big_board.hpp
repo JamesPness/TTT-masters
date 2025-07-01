@@ -27,6 +27,10 @@ class big_board{
             return winner;
         };
 
+        void set_winner(piece _winner){
+            winner = _winner;
+        };
+
         piece get_turn(){
             return turn;
         };

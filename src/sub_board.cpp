@@ -21,10 +21,6 @@ sub_board::sub_board(std::vector<piece> set_board, bool active){
     this->active = active;
 };
 
-void sub_board::set_active(bool val){
-    active = val;
-};
-
 void sub_board::print(){
     std::cout << "Status: ";
     if(active){

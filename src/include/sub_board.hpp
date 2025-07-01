@@ -15,7 +15,9 @@ class sub_board{
         bool get_active(){
             return active;
         };
-        void set_active(bool val);
+        void set_active(bool val){
+            active = val;
+        };
 
         std::vector<piece> get_spots(){
             return spots;

@@ -24,7 +24,7 @@ struct move{
 };
 
 struct raw_boardstate {
-    piece board[9][9];
+    std::vector<std::vector<piece>> board = std::vector<std::vector<piece>>(9, std::vector<piece>(9, piece::EMPTY));;
     piece turn; 
     short current; 
 };
