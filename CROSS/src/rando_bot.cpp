@@ -5,7 +5,7 @@
 #include "rando_bot.hpp"
 #include "globals.hpp"
 #include "sub_board.hpp"
-#include "globals.hpp"
+#include "big_board.hpp"
 
 move rando_bot(raw_boardstate boardstate) {
     big_board board(boardstate);
