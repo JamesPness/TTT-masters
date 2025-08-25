@@ -11,6 +11,7 @@ move rando_bot(raw_boardstate boardstate) {
     big_board board(boardstate);
     
     std::vector<move> moves = board.get_allowed_moves();
+    srand(time(0));
     int pick = rand() % moves.size();
     board.print();
     return moves[pick];
