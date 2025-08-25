@@ -126,6 +126,9 @@ bool big_board::is_valid_move(move _move){
     if(!(_move.sub >= 0 && _move.sub < 9)){
         return false;
     }
+    if (get_sub_boards()[_move.sub].get_winner() != EMPTY){
+        return false;
+    }
     if (_move.sub != current){
         if(current != -1){
             return false;
